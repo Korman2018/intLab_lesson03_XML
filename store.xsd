@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="store">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categories" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="category" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="subcategories">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="subcategory" maxOccurs="unbounded" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="products" maxOccurs="unbounded"
+                                                                            minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="product"
+                                                                                        maxOccurs="unbounded"
+                                                                                        minOccurs="0">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element
+                                                                                                name="manufacturerName">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction
+                                                                                                        base="xs:string">
+                                                                                                    <xs:pattern
+                                                                                                            value="[A-Za-z]*"/>
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="model">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction
+                                                                                                        base="xs:string">
+                                                                                                    <xs:pattern
+                                                                                                            value="[A-Za-z]{2}[0-9]{3}"/>
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element
+                                                                                                name="manufactureDate">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction
+                                                                                                        base="xs:string">
+                                                                                                    <xs:pattern
+                                                                                                            value="(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}"/>
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="color">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction
+                                                                                                        base="xs:string">
+                                                                                                    <xs:enumeration
+                                                                                                            value="BLACK"/>
+                                                                                                    <xs:enumeration
+                                                                                                            value="WHITE"/>
+                                                                                                    <xs:enumeration
+                                                                                                            value="NONE"/>
+                                                                                                    <xs:enumeration
+                                                                                                            value="RED"/>
+                                                                                                    <xs:enumeration
+                                                                                                            value="OTHER"/>
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="price">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction
+                                                                                                        base="xs:double">
+                                                                                                    <xs:minInclusive
+                                                                                                            value="0"/>
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="amount">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction
+                                                                                                        base="xs:integer">
+                                                                                                    <xs:minInclusive
+                                                                                                            value="0"/>
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                            <xs:attribute type="xs:string" name="name" use="required"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="name" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

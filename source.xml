@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<store xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='store.xsd'>
+    <categories>
+        <category name="components">
+            <subcategories>
+                <subcategory name="mouses">
+                    <products>
+                        <product>
+                            <manufacturerName>Genius</manufacturerName>
+                            <model>GL202</model>
+                            <manufactureDate>21-11-2018</manufactureDate>
+                            <color>BLACK</color>
+                            <price>700.0</price>
+                            <amount>10</amount>
+                        </product>
+                        <product>
+                            <manufacturerName>Genius</manufacturerName>
+                            <model>GO210</model>
+                            <manufactureDate>21-11-2018</manufactureDate>
+                            <color>WHITE</color>
+                            <price>900.0</price>
+                            <amount>1</amount>
+                        </product>
+                        <product>
+                            <manufacturerName>Logitech</manufacturerName>
+                            <model>LO707</model>
+                            <manufactureDate>21-11-2018</manufactureDate>
+                            <color>BLACK</color>
+                            <price>1200.0</price>
+                            <amount>3</amount>
+                        </product>
+                    </products>
+                </subcategory>
+                <subcategory name="processors">
+                    <products>
+                        <product>
+                            <manufacturerName>Intel</manufacturerName>
+                            <model>IC588</model>
+                            <manufactureDate>12-12-2018</manufactureDate>
+                            <color>NONE</color>
+                            <price>15800.0</price>
+                            <amount>3</amount>
+                        </product>
+                        <product>
+                            <manufacturerName>AMD</manufacturerName>
+                            <model>AA760</model>
+                            <manufactureDate>01-09-2018</manufactureDate>
+                            <color>NONE</color>
+                            <price>13445.50</price>
+                            <amount>1</amount>
+                        </product>
+                    </products>
+                </subcategory>
+            </subcategories>
+        </category>
+        <category name="computersAndMonitors">
+            <subcategories>
+                <subcategory name="monitors">
+                    <products>
+                        <product>
+                            <manufacturerName>LG</manufacturerName>
+                            <model>LL233</model>
+                            <manufactureDate>21-11-2018</manufactureDate>
+                            <color>BLACK</color>
+                            <price>7700.0</price>
+                            <amount>5</amount>
+                        </product>
+                        <product>
+                            <manufacturerName>Samsung</manufacturerName>
+                            <model>SL240</model>
+                            <manufactureDate>21-11-2018</manufactureDate>
+                            <color>WHITE</color>
+                            <price>9780.0</price>
+                            <amount>1</amount>
+                        </product>
+                    </products>
+                </subcategory>
+            </subcategories>
+        </category>
+    </categories>
+</store>
