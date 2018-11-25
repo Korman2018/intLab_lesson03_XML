@@ -39,23 +39,26 @@ public class StoreServiceImpl implements IStoreService {
     }
 
     public List<Category> getCategoryListFromXMLFileByStAX(String filename) {
-        XMLInputFactory xif = XMLInputFactory.newFactory();
-        StreamSource xmlSource = new StreamSource(filename);
-        XMLStreamReader xsr;
-        List<Category> categories = new ArrayList<>();
-
         try {
+            XMLInputFactory factory = XMLInputFactory.newFactory();
+            StreamSource xmlSource = new StreamSource(filename);
+            XMLStreamReader streamReader;
+            List<Category> categories = new ArrayList<>();
             JAXBContext context = JAXBContext.newInstance(Category.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            xsr = xif.createXMLStreamReader(xmlSource);
+            streamReader = factory.createXMLStreamReader(xmlSource);
 
             do {
-                xsr.nextTag();
-                if ("category".equals(xsr.getLocalName())) {
-                    Category category = (Category) unmarshaller.unmarshal(xsr);
+                streamReader.nextTag();
+
+                if ("store".equals(streamReader.getLocalName()) && streamReader.isEndElement()) {
+                    break;
+                }
+                if ("category".equals(streamReader.getLocalName())) {
+                    Category category = (Category) unmarshaller.unmarshal(streamReader);
                     categories.add(category);
                 }
-            } while (!xsr.isEndElement());
+            } while (true);
 
             return categories;
 

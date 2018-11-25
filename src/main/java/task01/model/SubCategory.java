@@ -40,7 +40,7 @@ public class SubCategory {
     public String toString() {
         return "subCategory:"
                 + name
-                + " "
+                + "\n"
                 + products
                 + "\n";
     }

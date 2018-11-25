@@ -1,6 +1,7 @@
-package task01.converter;
+package task01.converter.impl;
 
 import com.google.gson.Gson;
+import task01.converter.IJsonXmlConverterByGson;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -9,15 +10,21 @@ import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
 import java.io.StringWriter;
 
-public class JsonXmlConverterByGson<T> {
+public class JsonXmlConverterByGson<T> implements IJsonXmlConverterByGson {
     private T object;
     private JAXBContext context;
     private Class<T> clazz;
+    private String shemeName;
 
     public JsonXmlConverterByGson(Class<T> clazz) {
+        this(clazz, "");
+    }
+
+    public JsonXmlConverterByGson(Class<T> clazz, String shemeName) {
         try {
             context = JAXBContext.newInstance(clazz);
             this.clazz = clazz;
+            this.shemeName = shemeName;
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -45,7 +52,9 @@ public class JsonXmlConverterByGson<T> {
         try {
             StringWriter writer = new StringWriter();
             Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "store.xsd");
+            if (!shemeName.isEmpty()) {
+                marshaller.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, shemeName);
+            }
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.marshal(store, writer);
 
